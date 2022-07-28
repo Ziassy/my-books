@@ -1,0 +1,90 @@
+
+/* grid container */
+.grid-container-2, .grid-container-3 {
+  display: grid;
+  /* background-color: #2196F3; */
+  gap: 20px;
+
+}
+
+.grid-container-2 {
+  grid-template-columns: auto auto;
+  padding: 10px;
+
+}
+.grid-container-3 {
+  grid-template-columns: 100px 1px auto;
+  margin-bottom: 10px;
+}
+
+.grid-container-2 > input {
+  font-size: 17px;
+  border:solid 2px var(--primary-color); 
+  border-radius: 5px;
+  outline: none;
+  padding: 13px 10px;
+}
+
+form > .checkbox-task {
+  margin: 12px 0 12px 12px;
+  display: flex;
+  align-items: center;
+}
+
+form > .checkbox-task > label {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+form > .checkbox-task > input {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+form > button {
+  float: right;
+  padding: 10px 50px;
+  font-size: 17px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  border: none;
+  font-weight: bold;
+}
+
+/* uncompleted */
+.incompleted-task, .completed-task {
+  margin-top: 100px;
+}
+
+.flexbox > .box {
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.title-book{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.flexbox > .box {
+  flex: 0 0 30.333333%;
+  margin: 10px 10px 20px 10px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.grid-container-2 > button{
+  padding: 5px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+

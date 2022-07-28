@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/main.css">
+
+<body>
+
+  <nav class="topnav">
+    <div class="flex-container">
+      <div style="flex-grow: 11">
+        <a class="title-nav">My Books</a>
+      </div>
+      <div style="flex-grow: 2">
+        <div class="search-container">
+          <button type="submit"><i class="fa fa-search"></i></button>
+          <input type="text" placeholder="Search.." name="search">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Dashboard -->
+    <section class="dashboard">
+      <h1>Dashboard</h1>
+      <div class="box-container">
+        <div class="bg-orange">
+          <p class="bold mb-10">Total Task</p>
+          <p id="countTotal">0</p>
+        </div>
+        <div class="bg-green">
+          <p class="bold mb-10">Completed Task</p>
+          <p id="completedCount">0</p>
+        </div>
+        <div class="bg-red">
+          <p class="bold mb-10">Uncompleted Task</p>
+          <p id="incompletedCount">0</p>
+        </div>
+      </div>
+    </section>
+    <!-- End Dashboard -->
+
+    <!-- form -->
+    <section class="your-books">
+      <h1>Add New Book</h1>
+      <form id="inputTask">
+        <div class="grid-container-2">
+          <input type="text" name="titleBook" id="titleBook" placeholder="Title..." required>
+          <input type="text" name="author" id="author" placeholder="Author" required>
+          <input type="date" name="releaseYear" id="releaseYear" required>
+          <input type="text" name="review" id="review" placeholder="How’s your book?" required>
+        </div>
+
+        <div class="checkbox-task">
+          <input id="bookIsComplete" type="checkbox" />
+          <label for="bookIsComplete">Mark as Completed Task</label>
+        </div>
+        <button id="saveBook" type="submit">Save</button>
+      </form>
+    </section>
+
+    <section class="incompleted-task">
+      <h1>On Going Books</h1>
+      <div id="incompletedTask" class="flexbox">
+      </div>
+    </section>
+
+    <section class="completed-task">
+      <h1>Completed Books</h1>
+      <div id="completedTask" class="flexbox">
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="js/index.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

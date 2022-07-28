@@ -1,0 +1,27 @@
+.box-container, .box-container-books {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: DodgerBlue; */
+  margin: 30px 0 70px;
+
+}
+.box-container > div {
+  width: 400px;
+  height: 160px;
+  padding-top: 50px;
+  border-radius: 20px;
+}
+.box-container-books > input {
+  width: 100%;
+}
+
+.box-container > div, .box-container-books > div {
+  /* background-color: #ff8787; */
+  margin: 0 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.count-total {
+  margin-top: 5px;
+}

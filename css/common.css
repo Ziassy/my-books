@@ -1,0 +1,53 @@
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mr-50 {
+  margin-right: 50px;
+}
+
+.ml-50 {
+  margin-left: 50px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+main {
+  margin: 20px 150px;
+}
+
+/* color */
+.bg-orange {
+   background-color: var(--primary-color);
+}
+.bg-green {
+  background-color: var(--green-color);
+}
+.bg-grey {
+  background-color: #F3F3F3;
+
+}
+
+.bg-red {
+  background-color: var(--secondary-color);
+}
+.br-red {
+  border: solid 2px var(--secondary-color);
+}
+.br-green {
+  border: solid 2px #00AB44;
+}
+.br-none {
+  border: none;
+}
+.red {
+  color: #FF4848;
+}
+.green {
+  color: #00AB44;
+}
