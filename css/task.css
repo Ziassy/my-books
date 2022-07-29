@@ -1,8 +1,6 @@
 
-/* grid container */
 .grid-container-2, .grid-container-3 {
   display: grid;
-  /* background-color: #2196F3; */
   gap: 20px;
 
 }
@@ -51,7 +49,6 @@ form > button {
   font-weight: bold;
 }
 
-/* uncompleted */
 .incompleted-task {
   margin-top: 100px;
 }

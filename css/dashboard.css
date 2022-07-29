@@ -1,7 +1,6 @@
 .box-container, .box-container-books {
   display: flex;
   justify-content: space-around;
-  /* background-color: DodgerBlue; */
   margin: 30px 0 70px;
 
 }
@@ -16,7 +15,6 @@
 }
 
 .box-container > div, .box-container-books > div {
-  /* background-color: #ff8787; */
   margin: 0 10px;
   text-align: center;
   font-size: 18px;

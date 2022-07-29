@@ -1,17 +1,6 @@
 .mb-10 {
   margin-bottom: 10px;
 }
-.mr-50 {
-  margin-right: 50px;
-}
-
-.ml-50 {
-  margin-left: 50px;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
 
 .bold {
   font-weight: bold;
@@ -21,7 +10,6 @@ main {
   margin: 20px 150px;
 }
 
-/* color */
 .bg-orange {
    background-color: var(--primary-color);
 }

@@ -49,5 +49,3 @@ let completedView = book => `
         </div>
       </article>
 `
-
-const emptybook = `<p> Tidak ada buku </p>`

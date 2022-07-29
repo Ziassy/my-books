@@ -17,24 +17,20 @@ const clearValue = () =>{
 }
 
 const getData = () => {
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE)) || [];
+  return JSON.parse(localStorage.getItem(LOCAL_STORAGE));
 }
 
 const renderData = (books) => {
   const inCompleted = document.getElementById('incompletedTask')
   const completed = document.getElementById('completedTask')
 
-    inCompleted.innerHTML = ''
-    completed.innerHTML = ''
+  inCompleted.innerHTML = ''
+  completed.innerHTML = ''
 
-    books.forEach((book) => {
-      if(book.isCompleted === false) {
-        inCompleted.innerHTML += inCompletedView(book)
-      } else {
-        completed.innerHTML += completedView(book)
-      }
-    })
-    getDashboardInformation()
+  books.forEach((book) => {
+    book.isCompleted === false ? inCompleted.innerHTML += inCompletedView(book) : completed.innerHTML += completedView(book)
+  })
+  getDashboardInformation()
 }
 
 const saveBook = (books) => {
@@ -50,7 +46,7 @@ const saveBook = (books) => {
 }
 
 const removebook = (id) => {
-  let cf = confirm("Are you sure you want delete this book?")
+  let cf = confirm('Are you sure you want delete this book?')
 
   if(cf === true) {
     const bookDetail = getData().filter((a) => a.id == id)
@@ -58,7 +54,7 @@ const removebook = (id) => {
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
 
     renderData(getData())
-    alert(`[Book ${bookDetail[0].title}] has been deleted`);
+    alert(`Book "${bookDetail[0].title}"has been deleted`);
   }
 
   getDashboardInformation()
@@ -68,13 +64,13 @@ const undoTaskFromCompleted = (id) => {
   let cf = confirm('Move book to On Going Task ?')
 
     if (cf === true) {
-    const bookDataDetail = getData().filter((a) => a.id == id);
+    const bookDetail = getData().filter((a) => a.id == id);
     const newBook = {
-      id: bookDataDetail[0].id,
-      title: bookDataDetail[0].title,
-      author: bookDataDetail[0].author,
-      year: bookDataDetail[0].year,
-      review: bookDataDetail[0].review,
+      id: bookDetail[0].id,
+      title: bookDetail[0].title,
+      author: bookDetail[0].author,
+      year: bookDetail[0].year,
+      review: bookDetail[0].review,
       isCompleted: false,
     };
 
@@ -91,13 +87,13 @@ const moveTaskToCompleted = (id) => {
     let cf = confirm('Mark task as COMPLETED ?')
 
     if (cf === true) {
-    const bookDataDetail = getData().filter((a) => a.id == id);
+    const bookDetail = getData().filter((a) => a.id == id);
     const newBook = {
-      id: bookDataDetail[0].id,
-      title: bookDataDetail[0].title,
-      author: bookDataDetail[0].author,
-      year: bookDataDetail[0].year,
-      review: bookDataDetail[0].review,
+      id: bookDetail[0].id,
+      title: bookDetail[0].title,
+      author: bookDetail[0].author,
+      year: bookDetail[0].year,
+      review: bookDetail[0].review,
       isCompleted: true,
     };
 
@@ -117,8 +113,8 @@ window.addEventListener('load', () => {
   }
 })
 
-btnSaveBook.addEventListener('click', (event) => {
-  event.preventDefault()
+btnSaveBook.addEventListener('click', (e) => {
+  e.preventDefault()
   const newBook = {
     id: +new Date(),
     title: title.value,
