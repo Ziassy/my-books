@@ -11,7 +11,7 @@ btnSearch.addEventListener('click', (e) => {
   e.preventDefault()
   const getByTitle = getData().filter((a) => a.title.includes(searchhBookValue.value));
 
-  getByTitle.length !== 0 ? renderSearchResult(getByTitle) : alert('data yang anda cari tidak ditemukan')
+  getByTitle.length !== 0 ? renderSearchResult(getByTitle) : alert('Book is not available')
 
   searchBookValue.value = ''
   

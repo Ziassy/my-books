@@ -50,7 +50,6 @@ const saveBook = (books) => {
 }
 
 const removebook = (id) => {
-  // ni mau pake popup konfirmasi juga boleh
   let cf = confirm("Are you sure you want delete this book?")
 
   if(cf === true) {
@@ -59,7 +58,7 @@ const removebook = (id) => {
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
 
     renderData(getData())
-    alert(`[Buku ${bookDetail[0].title}] telah terhapus dari rak`);
+    alert(`[Book ${bookDetail[0].title}] has been deleted`);
   }
 
   getDashboardInformation()
@@ -113,7 +112,6 @@ const moveTaskToCompleted = (id) => {
 
 window.addEventListener('load', () => {
   if(localStorage.getItem(LOCAL_STORAGE) !== '') {
-    console.log('hai')
     const bookData = getData()
     renderData(bookData)
   }
