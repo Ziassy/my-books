@@ -52,8 +52,11 @@ form > button {
 }
 
 /* uncompleted */
-.incompleted-task, .completed-task {
+.incompleted-task {
   margin-top: 100px;
+}
+.completed-task {
+  margin-top: 50px;
 }
 
 .flexbox > .box {

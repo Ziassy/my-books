@@ -131,5 +131,8 @@ btnSaveBook.addEventListener('click', (event) => {
   }
   saveBook(newBook)
   clearValue()
+  viewCompletedTask.scrollIntoView()
 })
+
+
 
