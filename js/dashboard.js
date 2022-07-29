@@ -2,7 +2,7 @@ const totalCount = document.getElementById('countTotal')
 const completedCount = document.getElementById('completedCount')
 const inCompletedCount = document.getElementById('incompletedCount')
 
-const dashboardInformation = () => {
+const getDashboardInformation = () => {
   let completed = inCompleted = 0
   const myBooks = getData();
   const allBooks = myBooks.length;

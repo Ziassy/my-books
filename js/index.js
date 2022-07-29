@@ -20,26 +20,12 @@ const getData = () => {
   return JSON.parse(localStorage.getItem(LOCAL_STORAGE)) || [];
 }
 
-const renderData = (books = []) => {
+const renderData = (books) => {
   const inCompleted = document.getElementById('incompletedTask')
   const completed = document.getElementById('completedTask')
 
-  // const notFoundIncompleted = books.filter((a) => a.isCompleted === false)
-  // const notFoundCompleted = books.filter((a) => a.isCompleted === true)
-  // if (notFoundIncompleted.length === 0 && notFoundCompleted.length === 0) {
-  //   inCompleted.innerHTML += emptybook
-  //   completed.innerHTML += emptybook  
-  // } else {
-  //   books.forEach((book) => {
-  //   if (book.isCompleted === false) {
-  //     inCompleted.innerHTML += inCompletedView(book)
-  //   } else {
-  //     completed.innerHTML += completedView(book)
-  //   }
-  //   })
-  // }
-  inCompleted.innerHTML = ''
-  completed.innerHTML = ''
+    inCompleted.innerHTML = ''
+    completed.innerHTML = ''
 
     books.forEach((book) => {
       if(book.isCompleted === false) {
@@ -48,7 +34,7 @@ const renderData = (books = []) => {
         completed.innerHTML += completedView(book)
       }
     })
-    dashboardInformation()
+    getDashboardInformation()
 }
 
 const saveBook = (books) => {
@@ -61,6 +47,68 @@ const saveBook = (books) => {
   localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
 
   renderData(getData())
+}
+
+const removebook = (id) => {
+  // ni mau pake popup konfirmasi juga boleh
+  let cf = confirm("Are you sure you want delete this book?")
+
+  if(cf === true) {
+    const bookDetail = getData().filter((a) => a.id == id)
+    const bookData = getData().filter((a) => a.id != id)
+    localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
+
+    renderData(getData())
+    alert(`[Buku ${bookDetail[0].title}] telah terhapus dari rak`);
+  }
+
+  getDashboardInformation()
+}
+
+const undoTaskFromCompleted = (id) => {
+  let cf = confirm('Move book to On Going Task ?')
+
+    if (cf === true) {
+    const bookDataDetail = getData().filter((a) => a.id == id);
+    const newBook = {
+      id: bookDataDetail[0].id,
+      title: bookDataDetail[0].title,
+      author: bookDataDetail[0].author,
+      year: bookDataDetail[0].year,
+      review: bookDataDetail[0].review,
+      isCompleted: false,
+    };
+
+    const bookData = getData().filter((a) => a.id != id);
+    localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData));
+
+    saveBook(newBook);
+  }
+  getDashboardInformation()
+
+}
+
+const moveTaskToCompleted = (id) => {
+    let cf = confirm('Mark task as COMPLETED ?')
+
+    if (cf === true) {
+    const bookDataDetail = getData().filter((a) => a.id == id);
+    const newBook = {
+      id: bookDataDetail[0].id,
+      title: bookDataDetail[0].title,
+      author: bookDataDetail[0].author,
+      year: bookDataDetail[0].year,
+      review: bookDataDetail[0].review,
+      isCompleted: true,
+    };
+
+    const bookData = getData().filter((a) => a.id != id);
+    localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData));
+
+    saveBook(newBook);
+  }
+  getDashboardInformation()
+
 }
 
 window.addEventListener('load', () => {

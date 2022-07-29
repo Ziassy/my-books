@@ -18,8 +18,8 @@ let inCompletedView = book => `
           ${book.review}
         </p>
         <div class="grid-container-2 mt-20">
-          <button class="br-green green bold" type="submit">Complete</button>
-          <button class="br-red red bold" type="submit">Delete</button>
+          <button class="br-green green bold" onclick="moveTaskToCompleted(${book.id})">Complete</button>
+          <button class="br-red red bold" onclick="removebook('${book.id}')">Delete</button>
         </div>
       </article>
 `
@@ -44,8 +44,8 @@ let completedView = book => `
           ${book.review}
         </p>
         <div class="grid-container-2 mt-20">
-          <button class="br-green green bold" type="submit">Incomplete</button>
-          <button class="br-red red bold" type="submit">Delete</button>
+          <button class="br-green green bold" type="submit" onclick="undoTaskFromCompleted(${book.id})">Incomplete</button>
+          <button class="br-red red bold" type="submit" onclick="removebook('${book.id}')">Delete</button>
         </div>
       </article>
 `
