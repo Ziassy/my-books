@@ -1,5 +1,5 @@
 const btnSearch = document.getElementById('searchBook')
-const searchhBookValue = document.getElementById('searchBookValue')
+const searchBookValue = document.getElementById('searchBookValue')
 const viewCompletedTask = document.getElementById('completedTask')
 
 const renderSearchResult = (books) => {
@@ -7,12 +7,17 @@ const renderSearchResult = (books) => {
   viewCompletedTask.scrollIntoView()
 }
 
-btnSearch.addEventListener('click', (e) => {
-  e.preventDefault()
-  const getTitleBook = getData().filter((a) => a.title.includes(searchhBookValue.value));
+const search = () => {
+  const getTitleBook = getData().filter((a) => a.title.includes(searchBookValue.value));
 
-  getTitleBook.length !== 0 ? renderSearchResult(getTitleBook) : alert('Book is not available')
+  getTitleBook.length !== 0 ? renderSearchResult(getTitleBook) : alert(`Book "${searchBookValue.value}" is not available`)
 
   searchBookValue.value = ''
-  
+}
+
+searchBookValue.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    search()
+  }
 });
