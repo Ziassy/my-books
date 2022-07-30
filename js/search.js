@@ -15,9 +15,9 @@ const search = () => {
   searchBookValue.value = ''
 }
 
-searchBookValue.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
+searchBookValue.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
     search()
   }
 });
