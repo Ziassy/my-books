@@ -49,8 +49,8 @@ const removebook = (id) => {
   let cf = confirm('Are you sure you want delete this book?')
 
   if(cf === true) {
-    const bookDetail = getData().filter((a) => a.id == id)
-    const bookData = getData().filter((a) => a.id != id)
+    const bookDetail = getData().filter((book) => book.id === id)
+    const bookData = getData().filter((book) => book.id !== id)
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
 
     renderData(getData())
@@ -64,17 +64,17 @@ const undoTaskFromCompleted = (id) => {
   let cf = confirm('Move book to On Going Task ?')
 
     if (cf === true) {
-    const bookDetail = getData().filter((a) => a.id == id);
+    const book = getData().filter((book) => book.id === id);
     const newBook = {
-      id: bookDetail[0].id,
-      title: bookDetail[0].title,
-      author: bookDetail[0].author,
-      year: bookDetail[0].year,
-      review: bookDetail[0].review,
+      id: book[0].id,
+      title: book[0].title,
+      author: book[0].author,
+      year: book[0].year,
+      review: book[0].review,
       isCompleted: false,
     };
 
-    const bookData = getData().filter((a) => a.id != id);
+    const bookData = getData().filter((book) => book.id != id);
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData));
 
     saveBook(newBook);
@@ -87,17 +87,17 @@ const moveTaskToCompleted = (id) => {
     let cf = confirm('Mark task as COMPLETED ?')
 
     if (cf === true) {
-    const bookDetail = getData().filter((a) => a.id == id);
+    const book = getData().filter((a) => a.id === id);
     const newBook = {
-      id: bookDetail[0].id,
-      title: bookDetail[0].title,
-      author: bookDetail[0].author,
-      year: bookDetail[0].year,
-      review: bookDetail[0].review,
+      id: book[0].id,
+      title: book[0].title,
+      author: book[0].author,
+      year: book[0].year,
+      review: book[0].review,
       isCompleted: true,
     };
 
-    const bookData = getData().filter((a) => a.id != id);
+    const bookData = getData().filter((a) => a.id !== id);
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData));
 
     saveBook(newBook);
