@@ -21,7 +21,6 @@ const isStorageExist = () => {
     alert('Your browser does not support local storage');
     return false;
   }
-  console.log('support local storage')
   return true;
 }
 
@@ -63,7 +62,6 @@ const removebook = (id) => {
     const bookDetail = getData().filter((book) => book.id == id)
     const bookData = getData().filter((book) => book.id != id)
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
-    console.log(bookDetail[0])
 
     renderData(getData())
     alert(`Book "${bookDetail[0].title}"has been deleted`);
