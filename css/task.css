@@ -17,10 +17,13 @@
 
 .grid-container-2 > input {
   font-size: 17px;
-  border:solid 2px var(--primary-color); 
+  border:solid 2px var(--outline-color); 
   border-radius: 5px;
   outline: none;
   padding: 13px 10px;
+}
+.grid-container-2 > input:focus {
+  border:solid 2px var(--primary-color); 
 }
 
 form > .checkbox-task {
