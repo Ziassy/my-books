@@ -16,8 +16,17 @@ const clearValue = () =>{
   isCompleted.checked = false;
 }
 
+const isStorageExist = () => {
+  if (typeof (Storage) === undefined) {
+    alert('Your browser does not support local storage');
+    return false;
+  }
+  console.log('support local storage')
+  return true;
+}
+
 const getData = () => {
-  return JSON.parse(localStorage.getItem(LOCAL_STORAGE));
+  return JSON.parse(localStorage.getItem(LOCAL_STORAGE)) || [];
 }
 
 const renderData = (books) => {
@@ -34,24 +43,27 @@ const renderData = (books) => {
 }
 
 const saveBook = (books) => {
-  let book = books
-  let bookData = []
-
-  localStorage.getItem(LOCAL_STORAGE) === null ? bookData = [] : bookData = JSON.parse(localStorage.getItem(LOCAL_STORAGE));
+  if(isStorageExist) {
+    let book = books
+    let bookData = []
   
-  bookData.push(book)
-  localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
-
-  renderData(getData())
+    localStorage.getItem(LOCAL_STORAGE) === null ? bookData = [] : bookData = JSON.parse(localStorage.getItem(LOCAL_STORAGE));
+    
+    bookData.push(book)
+    localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
+  
+    renderData(getData())
+  }
 }
 
 const removebook = (id) => {
   let cf = confirm('Are you sure you want delete this book?')
 
   if(cf === true) {
-    const bookDetail = getData().filter((book) => book.id === id)
-    const bookData = getData().filter((book) => book.id !== id)
+    const bookDetail = getData().filter((book) => book.id == id)
+    const bookData = getData().filter((book) => book.id != id)
     localStorage.setItem(LOCAL_STORAGE, JSON.stringify(bookData))
+    console.log(bookDetail[0])
 
     renderData(getData())
     alert(`Book "${bookDetail[0].title}"has been deleted`);
